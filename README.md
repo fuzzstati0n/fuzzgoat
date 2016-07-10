@@ -1,3 +1,6 @@
+Welcome to the Fuzzgoat Backdoor Challenge
+------------------------------------------
+
 This C program has been deliberately backdoored to test the efficacy of fuzzers and other analysis tools. 
 
 CAUTION: Do not copy any of this code - there is evil stuff in this repo.
