@@ -5,6 +5,7 @@ This C program has been deliberately backdoored to test the efficacy of fuzzers 
 
 CAUTION: Do not copy any of this code - there is evil stuff in this repo.
 
+UPDATE: Our fuzzers have found a few non-exploitable crashes due to invalid reads in the project we forked from. Please verify that any crashes you get are from your backdoor before submitting. We will be working on fixes - stay tuned.
 
 Building
 ----------
