@@ -20,7 +20,7 @@ Contributing
 ------------
 Ever want to write a backdoor? Want a free Fuzz Stati0n t shirt? Clone the fuzzgoat repo, build it, back door it and send us a pull request. The first 5 accepted submissions will get a t shirt. Some guidelines:
 
-* It should be neither too easy nor too hard for the fuzzer to trigger the back door.
+* It should be neither too easy nor too hard for the fuzzer to trigger the back door. Ideally the fuzzer should find the crash between 1 and 10 minutes of run time.
 * The back door can be as obvious or as obfuscated as you like.
 * Include a test case which triggers the backdoor and crashes fuzzgoat.
 * Please comment the code which constitutes the back door e.g. `// Deliberate backdoor`
