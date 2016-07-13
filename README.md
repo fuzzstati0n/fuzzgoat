@@ -15,20 +15,20 @@ Compile with:
 
 Replace `afl-clang-fast` with the compiler of your choice as appropriate for the fuzzer you are using.
 
+We recommend the AFL fuzzer available at: http://lcamtuf.coredump.cx/afl/
+
 
 Contributing
 ------------
-Ever want to write a backdoor? Want a free Fuzz Stati0n t shirt? Clone the fuzzgoat repo, build it, back door it and send us a pull request. The first 5 accepted submissions will get a t shirt. Some guidelines:
+Ever want to write a backdoor? Want a free Fuzz Stati0n t-shirt? Clone the fuzzgoat repo, build it, back door it and send us a pull request. The first 5 accepted submissions will get a t-shirt. Some guidelines:
 
-* It should be neither too easy nor too hard for the fuzzer to trigger the back door. Ideally the fuzzer should find the crash between 1 and 10 minutes of run time.
+* It should be neither too easy nor too hard for the fuzzer to trigger the back door. Ideally the fuzzer should find the crash in between 1 and 10 minutes of run time.
 * The back door can be as obvious or as obfuscated as you like.
 * Include a test case which triggers the backdoor and crashes fuzzgoat.
 * Please comment the code which constitutes the back door e.g. `// Deliberate backdoor`
-* Let us know your t shirt size.
+* Let us know your t-shirt size.
+* James Comey is ineligible - any backdoors he submits will not be considered. Nor will he get a t-shirt.
 * Have fun - contact: support@fuzzstati0n.com with any questions or issues.
-
-We recommend the AFL fuzzer available at: http://lcamtuf.coredump.cx/afl/
-
 
 Thank You
 ---------
