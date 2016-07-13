@@ -36,7 +36,7 @@ Fuzzgoat was adapted from udp/json-parser - we chose it because:
 
 * Its not too big or cumbersome - ~1200 lines of C yet lots of paths for a fuzzer to dig into.
 * Performance: its very fast at ~3000 execs / sec, fuzz runs complete very quickly.
-* Json-parser proved very resilient to our fuzzing attacks. So any crashes seen will probably be one of the deliberate backdoors and not a memory bug in json-parser.
+* We have found a few minor bad reads and are working on fixes. ~~Json-parser proved very resilient to our fuzzing attacks. So any crashes seen will probably be one of the deliberate backdoors and not a memory bug in json-parser.~~
 * The code is clean and very readable.
 
 Fuzz Stati0n would like to thank the creators and maintainers of udp/json-parser. 
