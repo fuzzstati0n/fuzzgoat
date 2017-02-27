@@ -119,7 +119,10 @@ static int new_value (json_state * state,
          case json_array:
 
             if (value->u.array.length == 0)
+            {
+               free(*top);
                break;
+            }
 
             if (! (value->u.array.values = (json_value **) json_alloc
                (state, value->u.array.length * sizeof (json_value *), 0)) )
@@ -984,10 +987,13 @@ void json_value_free_ex (json_settings * settings, json_value * value)
                break;
             }
 
-            value = value->u.object.values [-- value->u.object.length].value;
+            value = value->u.object.values [value->u.object.length--].value;
             continue;
 
          case json_string:
+         		if (!value->u.string.length){
+              value->u.string.ptr++;
+            }
 
             settings->mem_free (value->u.string.ptr, settings->user_data);
             break;
