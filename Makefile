@@ -8,9 +8,12 @@ all: $(DEPS)
 	$(CC) -o fuzzgoat $(CFLAGS) $^ $(LIBS)
 
 asan: $(DEPS)
-	$(CC) $(ASAN) -o fuzzgoat $(CFLAGS) $^ $(LIBS)
+	$(CC) $(ASAN) -o fuzzgoat_ASAN $(CFLAGS) $^ $(LIBS)
+
+afl: fuzzgoat
+	afl-fuzz -i in -o out ./fuzzgoat @@
 
 .PHONY: clean
 
 clean:
-	rm ./fuzzgoat
+	rm ./fuzzgoat ./fuzzgoat_ASAN
