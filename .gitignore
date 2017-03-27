@@ -27,7 +27,12 @@
 *.i*86
 *.x86_64
 *.hex
+fuzzgoat
 
 # Debug files
 *.dSYM/
 *.su
+
+# Generated files
+in/
+out/
