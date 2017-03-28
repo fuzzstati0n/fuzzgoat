@@ -121,16 +121,17 @@ static int new_value (json_state * state,
             if (value->u.array.length == 0)
             {
 
-        		/***************************************************************************************
-        			WARNING: Fuzzgoat Vulnerability
-							
-							The line of code below frees the memory block refereenced by *top if the length of the
-							JSON array is 0. The program attempts to use that memory block later in the program.
+/******************************************************************************
+	WARNING: Fuzzgoat Vulnerability
+	
+	The line of code below frees the memory block refereenced by *top if 
+	the length of the JSON array is 0. The program attempts to use that memory
+	block later in the program.
 
-        			Diff			-	Added: free(*top);
-        			Payload		-	An empty JSON array
-        			Trigger		-	Use after free in json_value_free()
-        		****************************************************************************************/
+	Diff     - Added: free(*top);
+	Payload  - An empty JSON array : []
+	Trigger  - Use after free in json_value_free()
+******************************************************************************/
  
                free(*top);
                break;
@@ -999,34 +1000,34 @@ void json_value_free_ex (json_settings * settings, json_value * value)
                break;
             }
 
-        		/***************************************************************************************
-        			WARNING: Fuzzgoat Vulnerability
-							
-							The line of code below incorrectly decrements the value of value->u.object.length,
-							causing an invalid read when attempting to free the memory space in the if-statement
-							above.
+/******************************************************************************
+	WARNING: Fuzzgoat Vulnerability
+	
+	The line of code below incorrectly decrements the value of 
+	value->u.object.length, causing an invalid read when attempting to free the 
+	memory space in the if-statement above.
 
-        			Diff			-	[--value->u.object.length].value  -->  [value->u.object.length--].value
-        			Payload		-	Any valid JSON object
-        			Trigger		-	Invalid free in the above if-statement
-        		****************************************************************************************/
+	Diff     - [--value->u.object.length] --> [value->u.object.length--]
+	Payload  - Any valid JSON object : {"":0}
+	Trigger  - Invalid free in the above if-statement
+******************************************************************************/
 
             value = value->u.object.values [value->u.object.length--].value;
             continue;
 
          case json_string:
 
-        		/***************************************************************************************
-        			WARNING: Fuzzgoat Vulnerability
-							
-							The code below decrements the pointer to the JSON string if the string is empty.
-							After decrementing, the program tries to call mem_free on the pointer, which no longer
-							references the JSON string.
+/******************************************************************************
+	WARNING: Fuzzgoat Vulnerability
+	
+	The code below decrements the pointer to the JSON string if the string
+	is empty. After decrementing, the program tries to call mem_free on the
+	pointer, which no longer references the JSON string.
 
-        			Diff			-	Added: if (!value->u.string.length) value->u.string.ptr--;
-        			Payload		-	An empty JSON string
-        			Trigger		-	Invalid free on decremented value->u.string.ptr
-        		****************************************************************************************/
+	Diff     - Added: if (!value->u.string.length) value->u.string.ptr--;
+	Payload  - An empty JSON string : ""
+	Trigger  - Invalid free on decremented value->u.string.ptr
+******************************************************************************/
 
          		if (!value->u.string.length){
               value->u.string.ptr--;
