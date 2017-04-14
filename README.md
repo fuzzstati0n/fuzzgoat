@@ -1,25 +1,38 @@
 Welcome to Fuzzgoat
 ------------------------------------------
 
-This C program has been deliberately backdoored with several memory corruption bugs to test the efficacy of fuzzers and other analysis tools.  
+This C program has been deliberately backdoored with several memory corruption bugs to test the efficacy of fuzzers and other analysis tools. Each vulnerability is clearly commented in fuzzgoat.c.
 
 CAUTION: Do not copy any of this code - there is evil stuff in this repo.
 
 
-Building
+Install AFL (American Fuzzy Lop)
+------------------------
+
+While Fuzzgoat can be attacked using any fuzzer, we like AFL. To install it:
+
+1. [Download AFL](http://lcamtuf.coredump.cx/afl/QuickStartGuide.txt)
+2. Build AFL with `make install`
+
+
+Building Fuzzgoat
 ----------
 
-Fuzzgoat builds with make:
+Fuzzgoat builds with make. With afl-gcc in your PATH:
 
 `make all`
 
 
-Running American Fuzzy Lop
+Running AFL
 --------------------------
 
 With afl-fuzz in your PATH and a seed file in a directory called in/
 
-`afl-fuzz -i in -o out ./fuzzgoat @@`
+`afl-fuzz -i in -o out ./fuzzgoat @@` 
+
+or simply
+
+`make afl`
 
 
 Thank You
