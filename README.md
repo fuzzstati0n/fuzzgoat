@@ -1,5 +1,5 @@
 Welcome to Fuzzgoat
-------------------------------------------
+===================
 
 This C program has been deliberately backdoored with several memory corruption bugs to test the efficacy of fuzzers and other analysis tools. Each vulnerability is clearly commented in fuzzgoat.c.
 
@@ -40,6 +40,8 @@ or simply:
 
 Thank You
 ---------
+Contributor: Joseph Carlos 
+
 Fuzzgoat was adapted from udp/json-parser - we chose it because:
 
 * Its not too big or cumbersome - ~1200 lines of C yet lots of paths for a fuzzer to dig into.
