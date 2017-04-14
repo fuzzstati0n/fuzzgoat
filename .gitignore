@@ -34,5 +34,4 @@ fuzzgoat
 *.su
 
 # Generated files
-in/
 out/

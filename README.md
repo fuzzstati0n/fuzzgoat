@@ -11,7 +11,7 @@ Install AFL (American Fuzzy Lop)
 
 While Fuzzgoat can be attacked using any fuzzer, we like AFL. To install it:
 
-1. [Download AFL](http://lcamtuf.coredump.cx/afl/QuickStartGuide.txt)
+1. Download AFL: [http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz](http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz)
 2. Build AFL with `make install`
 
 
