@@ -6,8 +6,6 @@ LIBS=-lm
 
 all: $(DEPS)
 	$(CC) -o fuzzgoat $(CFLAGS) $^ $(LIBS)
-
-asan: $(DEPS)
 	$(CC) $(ASAN) -o fuzzgoat_ASAN $(CFLAGS) $^ $(LIBS)
 
 afl: fuzzgoat
