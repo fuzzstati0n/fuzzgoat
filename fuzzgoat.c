@@ -124,15 +124,15 @@ static int new_value (json_state * state,
 /******************************************************************************
 	WARNING: Fuzzgoat Vulnerability
 	
-	The line of code below frees the memory block refereenced by *top if 
-	the length of the JSON array is 0. The program attempts to use that memory
+	The line of code below frees the memory block referenced by *top if 
+	the length of a JSON array is 0. The program attempts to use that memory
 	block later in the program.
 
 	Diff     - Added: free(*top);
-	Payload  - An empty JSON array : []
-	Trigger  - Use after free in json_value_free()
+	Payload  - An empty JSON array: []
+	Triggers - Use after free in json_value_free()
 ******************************************************************************/
- 
+
                free(*top);
 /****** END vulnerable code **************************************************/
 
@@ -1011,7 +1011,7 @@ void json_value_free_ex (json_settings * settings, json_value * value)
 
 	Diff     - [--value->u.object.length] --> [value->u.object.length--]
 	Payload  - Any valid JSON object : {"":0}
-	Trigger  - Invalid free in the above if-statement
+	Triggers - Invalid free in the above if-statement
 ******************************************************************************/
 
             value = value->u.object.values [value->u.object.length--].value;
@@ -1030,11 +1030,29 @@ void json_value_free_ex (json_settings * settings, json_value * value)
 
 	Diff     - Added: if (!value->u.string.length) value->u.string.ptr--;
 	Payload  - An empty JSON string : ""
-	Trigger  - Invalid free on decremented value->u.string.ptr
+	Triggers - Invalid free on decremented value->u.string.ptr
 ******************************************************************************/
 
          		if (!value->u.string.length){
               value->u.string.ptr--;
+            }
+/****** END vulnerable code **************************************************/
+
+
+/******************************************************************************
+  WARNING: Fuzzgoat Vulnerability
+
+  The code below creates and dereferences a NULL pointer if the string
+  is of length one.
+
+  Diff     - Check for one byte string - create and dereference a NULL pointer
+  Payload  - An JSON string of length one : "A"
+  Triggers - NULL pointer dereference
+******************************************************************************/
+
+            if (value->u.string.length == 1) {
+              char *null_pointer = NULL;
+              printf ("%d", *null_pointer);
             }
 /****** END vulnerable code **************************************************/
 
