@@ -1,2 +1,5 @@
+# Download AFL from: http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz
+# Build AFL with: make install
+# Build fuzzgoat with: make
 
 afl-fuzz -i in -o out ./fuzzgoat @@
