@@ -134,6 +134,8 @@ static int new_value (json_state * state,
 ******************************************************************************/
  
                free(*top);
+/****** END vulnerable code **************************************************/
+
                break;
             }
 
@@ -1013,6 +1015,8 @@ void json_value_free_ex (json_settings * settings, json_value * value)
 ******************************************************************************/
 
             value = value->u.object.values [value->u.object.length--].value;
+/****** END vulnerable code **************************************************/
+
             continue;
 
          case json_string:
@@ -1032,6 +1036,7 @@ void json_value_free_ex (json_settings * settings, json_value * value)
          		if (!value->u.string.length){
               value->u.string.ptr--;
             }
+/****** END vulnerable code **************************************************/
 
             settings->mem_free (value->u.string.ptr, settings->user_data);
             break;
