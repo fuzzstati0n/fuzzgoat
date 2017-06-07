@@ -1,7 +1,7 @@
 Welcome to Fuzzgoat
 ===================
 
-This C program has been deliberately backdoored with several memory corruption bugs to test the efficacy of fuzzers and other analysis tools. Each vulnerability is clearly commented in fuzzgoat.c.
+This C program has been deliberately backdoored with several memory corruption bugs to test the efficacy of fuzzers and other analysis tools. Each vulnerability is clearly commented in fuzzgoat.c. Under input-files/ are files to trigger each vulnerability.
 
 CAUTION: Do not copy any of this code - there is evil stuff in this repo.
 
@@ -23,7 +23,7 @@ Building Fuzzgoat
 
 Fuzzgoat builds with make. With afl-gcc in your PATH:
 
-`make all`
+`make`
 
 
 Running AFL
