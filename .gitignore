@@ -28,6 +28,7 @@
 *.x86_64
 *.hex
 fuzzgoat
+fuzzgoat_ASAN
 
 # Debug files
 *.dSYM/
