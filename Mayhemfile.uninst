@@ -1,0 +1,4 @@
+project: fuzzgoat
+target: afl-fuzzgoat
+cmds:
+  - cmd: /fuzzgoat @@
