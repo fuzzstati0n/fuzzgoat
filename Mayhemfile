@@ -1,0 +1,9 @@
+version: '2.0'
+project: abrewer/fuzzgoat
+target: afl-fuzzgoat
+baseimage: $MAYHEM_DOCKER_REGISTRY/abrewer/afl-fuzzgoat:latest
+#duration: 300
+advanced_triage: false
+cmds:
+  - cmd: /fuzzgoat @@
+    afl: true
